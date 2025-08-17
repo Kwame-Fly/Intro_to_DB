@@ -38,7 +38,7 @@ CREATE TABLE Customers (
 -- ORDERS TABLE
 CREATE TABLE Orders (
   order_id INT AUTO_INCREMENT PRIMARY KEY,
-  customer_id INT NOT NULL,
+  customer_id INT NOT NULL FOREIGN KEY,
   order_date DATE NOT NULL,
   CONSTRAINT fk_orders_customer
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
