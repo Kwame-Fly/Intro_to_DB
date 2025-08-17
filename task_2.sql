@@ -41,7 +41,7 @@ CREATE TABLE Orders (
   customer_id INT NOT NULL FOREIGN KEY,
   order_date DATE NOT NULL,
   CONSTRAINT fk_orders_customer
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
     ON UPDATE CASCADE
     ON DELETE RESTRICT
 ) ENGINE=INNODB;
@@ -53,11 +53,11 @@ CREATE TABLE Order_Details (
   book_id INT NOT NULL,
   quantity DOUBLE NOT NULL,
   CONSTRAINT fk_od_order
-    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE,
   CONSTRAINT fk_od_book
-    FOREIGN KEY (book_id) REFERENCES books(book_id)
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
     ON UPDATE CASCADE
     ON DELETE RESTRICT
 ) ENGINE=INNODB;
